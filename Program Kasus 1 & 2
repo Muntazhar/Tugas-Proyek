@@ -1,0 +1,120 @@
+1. KASUS I :
+
+#include<stdio.h>
+#include<conio.h>
+#include<iostream>
+using namespace std;
+int main()
+{
+char nama[30],matkul[30], grade;
+int kehadiran, tugasm, tugasp, uts, uas, ntugasm, ntugasp, nuts, nuas, NA, nkehadiran;
+
+cout<<endl<<endl;
+cout<<"\t------------------ PROGRAM MENGHITUNG NILAI AKHIR ------------------"<<endl<<endl;
+cout<<"\tNama Mata Kuliah : "; gets (matkul);
+cout<<"\tMasukkan Nama Siswa : "; gets(nama);
+cout<<"\tMasukkan Nilai Tugas Mandiri : "; cin>>tugasm;
+cout<<"\tMasukkan Nilai Tugas Proyek : "; cin>>tugasp;
+cout<<"\tMasukkan Nilai uts : "; cin>>uts;
+cout<<"\tMasukkan Nilai uas : "; cin>>uas;
+cout<<"\tMasukkan Kehadiran : "; cin>>kehadiran;
+nkehadiran = kehadiran*15/100;
+ntugasm = tugasm*20/100;
+ntugasp = tugasp*20/100;
+nuts = uts*20/100;
+nuas = uas*25/100;
+NA = nkehadiran+ntugasm+ntugasp+nuts+nuas;
+
+
+if(NA>=85)
+{ grade = 'A';}
+
+else if (NA>=71)
+{
+grade = 'B';
+}
+
+else if (NA>=51)
+{
+grade = 'C';
+}
+
+else if (NA>=45)
+{
+grade = 'D';
+}
+
+else
+{
+grade = 'E';
+}
+
+system("cls");
+
+cout<<endl<<endl;
+cout<<"\t------------------ Hasil Nilai Akhir Siswa --------------------"<<endl<<endl;
+cout<<"\tNama Mata Kuliah "<<matkul<<","<<endl;
+cout<<"\tsiswa yang bernama "<<nama<<" dengan nilai persentasi yang dihasilkan : "<<endl;
+cout<<"\tKehadiran * 15% = "<<nkehadiran<<endl;
+cout<<"\tNilai tugas Mandiri * 20% = "<<ntugasm<<endl;
+cout<<"\tNilai tugas Proyek * 20% = "<<ntugasp<<endl;
+cout<<"\tNilai UTS * 20% = "<<nuts<<endl;
+cout<<"\tNilai UAS * 25% = "<<nuas<<endl;
+cout<<endl<<endl;
+cout<<"\tJadi siswa yang bernama "<<nama<<" memperoleh nilai akhir sebesar "<<NA<<endl<<endl;
+cout<<"\tGrade nilai yang didapat adalah "<<grade<<endl;
+
+}
+
+2. KASUS II :
+
+#include<iostream>
+using namespace std;
+main()
+{
+ char nik[5],nama[20], golongan;
+ int jam;
+ long gaji, lembur;
+ cout<<"PROGRAM MENGHITUNG UPAH MINGGUAN KARYAWAN"<<endl;
+ cout<<"-------------CV.ABC---------------\n";
+ cout<<"-----------------------------------------\n";
+ cout<<"NIK		  : ";
+ cin.getline(nik,sizeof(nik));
+ cout<<"Nama Karyawan     : ";
+ cin.getline(nama,sizeof(nama));
+ cout<<"Golongan (1/2/3/4): ";
+ cin>>golongan;	
+ cout<<"Jam Kerja         : ";
+ cin>>jam;
+ cout<<"-----------------------------------------\n";
+ lembur=3000;
+ int mylembur=0;
+ if (jam>48){
+  mylembur=jam-48;
+ }
+ switch(golongan)
+ {
+ case '1' :
+  gaji = (jam-mylembur) * 3000;
+   break;
+  case '2' :
+  gaji = (jam-mylembur) * 3500;
+   break;
+   case '3' :
+  gaji = (jam-mylembur) * 4000;
+   break;
+    case '4' :
+  gaji = (jam-mylembur) * 5000;
+   break;
+     default :
+            cout<<"Golongan Tidak Tersedia!"<<endl;
+            gaji = 0;
+            lembur = 0;
+ }
+   if (jam>48){
+gaji = gaji+( (jam - 48) * lembur);
+ }
+ 	cout<<"NIK	: "<<nik<<endl;
+    cout<<"Nama Karyawan  :  "<<nama<<endl;
+ 	cout<<"Total Upah     : Rp. "<<gaji<<endl;
+}
